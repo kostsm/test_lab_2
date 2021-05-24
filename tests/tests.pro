@@ -38,4 +38,5 @@ HEADERS += \
 
 INCLUDEPATH += ../app
 
-DISTFILES +=
+DISTFILES += \
+    test_file1.txt
