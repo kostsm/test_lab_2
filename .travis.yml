@@ -11,7 +11,7 @@ addons:
   sonarcloud:
     organization: "kostsm"
     token:
-      secure: "sgAQOMHwhEMFD+3R3xrH6fODvuSG6AjwrCycCypuRhfXQy3L1EcwUP4NNPWXBhogfigx1c8sV/ExPhfpL7C0Gth6nTmlBYTlm+oZMcGPqTb/rPcoZLt4gSpqprgd58V9H8khitBkXfw5vH1IhfnoubpYTCfi6SqXSGHa5SctblG+RTmt59iX4IGBxtUWMUcy8cNEEHjc+ZLe4jS9xCvTSTaN1iNbhQGRHybDcdtrhljnCjAG4W22+7akghTZym2HEqC7cGMQEzGOVwxbPJwpahBZmaFHY2mmb6oe48Pi5nFrEcAKZ6p9mLDHD8xFlr7J9Uuuis2M5jPm2MFCSOarAm3bP31aDuHRQlPtKUhjNZTk+bQ8e/Zz56DrGh9Q3fJpA8xvm4ogP26PZfShsKTWV+N/6CaDrmGs+BkVbmfNYutkT/Yp7xneXwYAQ4dnsaiq7sLsYzlFccJGsRpxacnVlD6i0qXfGCN5Zp2sjw/ELfe9pbqKNSPX5VqXYIHyxGvyyh3+01MbtS+sD/boZq2hxqUIQn9zAHHvR8gEx6Ud5Nabv/TzjR/k3cHo3vaXjFN96+GcQxzRnNqvRRQj0cpyknsoztiSZaYKRS5qVdl44sjh8CrExPPsfV+IipRBk0JaJ7kF6OO1A1mab3SY0xBctE3bhkjRBJMcVHz2HLnEmcE="
+      secure: "dbyuaKtsSMmv5XB9t9hdjn4h43mBcM9yyuRAibxPkFRZD0n58tjnc8Lia9bvRKLWib53wxD/Sr2nmLn06UANsvNdHPnJXHn0IMf2byAuaMXClVK0BzgDSM0MTZJZVRY4kzycVtB2RB1SiAJfEL/qatcaN6bobIo/T5wcX9aqj01tctUud1IMONJlBd1SLo2JGJ1+Ul4gWNfjGks8duE4fXfQayFSo0NCzuFCDvPfHxZqM6J8mzmWRlj6M7ZULfw5xlWIFHtASQqE7lvT7N8DaHLqSB9fOS5HeXRdEFp49F9E4Wv7GQ7/TOXp5+qDAo9HbmMWLkzInuTZiKFlZzGzXHtrR+pTy+gLK1Skz8T0AsrVL9XRfuu1Zql5JLCf3X3UDS0C4TCsw2BY1+tC1JbItyMjUHmzrM81TC2mBMRHokt2HdbG8TXKvuU7GCxcr7BYlHu/2GKn4IBiBzY1qgIvjaHCTosYsX1imG6UPO7z3pdnFQjvmuzmcyMpNGwIRBHc9/nTGA9qjhSTItiHTD3C61MT+CUI3AH75/+8l9ng9t4RfKEeB0S2xID8QaM7nHLJCxmQGOOXNoET5wyDp/ga6GCBBfQcR/f48ft4roJ8jms4Wl/Ws2cYUsZ+kEimk9GpULhHUtSQBdUrbbV4AbQnu6MqkWeIn4apBWiZWivqvsg="
 
 script:
     - qmake 
@@ -21,7 +21,7 @@ script:
 after_success:
     - coveralls --root . -E ".*external.*" -E ".*tests.*"
     - build-wrapper-linux-x86-64 --out-dir bw-output make clean all
-    - sonar-scanner
+    - sonar-scanner -Dsonar.cfamily.build-wrapper-output=bw-output
     
 cache:
     directories:
