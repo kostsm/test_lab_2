@@ -71,7 +71,7 @@ TEST(showunderscores, multispace)
     EXPECT_STREQ(text.c_str(), output_text.c_str());
 }
 
-TEST(showunderscores, numbers)
+TEST(showunderscores, numbers) //added
 {
     std::string output_text = "";
     text txt = create_text();
